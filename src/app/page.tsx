@@ -1,3 +1,32 @@
-export default function Home() {
-  return <div>Hello WOrld</div>;
-}
+'use client';
+
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { Logo, Menu, Wrapper } from 'src/app/styles';
+import Button from 'src/components/Button';
+
+const Home: NextPage = () => {
+  return (
+    <Wrapper>
+      <Menu>
+        <Logo
+          src="/logo.svg"
+          alt="Logo"
+          width={375}
+          height={185}
+        />
+        <Button variant="secondary">
+          <Image
+            src="/play.svg"
+            alt="Play"
+            width={140}
+            height={140}
+          />
+        </Button>
+        <Button>How to play</Button>
+      </Menu>
+    </Wrapper>
+  );
+};
+
+export default Home;
