@@ -1,4 +1,4 @@
-import './globals.css';
+import 'src/app/globals.css';
 
 import type { Metadata } from 'next';
 import { Mouse_Memoirs } from 'next/font/google';

@@ -2,6 +2,7 @@
 
 import { NextPage } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Logo, Menu, Wrapper } from 'src/app/styles';
 import Button from 'src/components/Button';
 
@@ -23,7 +24,9 @@ const Home: NextPage = () => {
             height={140}
           />
         </Button>
-        <Button>How to play</Button>
+        <Link href="rules">
+          <Button>How to play</Button>
+        </Link>
       </Menu>
     </Wrapper>
   );

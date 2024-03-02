@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  height: 100%;
+  padding: 0 15px;
   display: grid;
   place-items: center;
-  background: url('/background.svg') no-repeat bottom/cover;
 `;
 
 export const Menu = styled.div`
