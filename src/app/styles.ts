@@ -26,5 +26,22 @@ export const Menu = styled.div`
 `;
 
 export const Logo = styled(Image)`
+  width: 375px;
+  height: 185px;
   margin-top: -92.5px;
+
+  @media (max-width: 500px) {
+    width: 200px;
+    height: 100px;
+  }
+`;
+
+export const Play = styled(Image)`
+  width: 140px;
+  height: 140px;
+
+  @media (max-width: 500px) {
+    width: 80px;
+    height: 80px;
+  }
 `;

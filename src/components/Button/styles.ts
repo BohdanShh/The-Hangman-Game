@@ -8,9 +8,8 @@ export const StyledButton = styled.button<StyledButtonProps>(({ variant }) => {
   return css`
     display: grid;
     place-items: center;
-    min-width: ${isPrimary ? '260px' : 'auto'};
     border-radius: ${isPrimary ? '50px' : '50%'};
-    padding: ${isPrimary ? '10px' : '15px'};
+    padding: ${isPrimary ? '10px 50px' : '15px'};
     border-top: 1px solid #261676;
     border-right: 2px solid #261676;
     border-left: 2px solid #261676;

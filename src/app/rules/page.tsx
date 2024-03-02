@@ -3,18 +3,23 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Container, RuleCard, RuleDescription, RuleName, RuleNumber } from 'src/app/rules/styles';
+import {
+  Container,
+  PageHeader,
+  RuleCard,
+  RuleDescription,
+  RuleList,
+  RuleName,
+  RuleNumber,
+  RulesWrapper,
+} from 'src/app/rules/styles';
 import Button from 'src/components/Button';
-import Flex from 'src/components/Flex';
 import Title from 'src/components/Title';
 
 const Rules: NextPage = () => {
   return (
     <Container>
-      <Flex
-        justifyContent="space-between"
-        alignItems="center"
-      >
+      <PageHeader>
         <Link href="/">
           <Button variant="secondary">
             <Image
@@ -26,21 +31,14 @@ const Rules: NextPage = () => {
           </Button>
         </Link>
         <Title>How to Play</Title>
-      </Flex>
-      <Flex
-        flexGrow={1}
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Flex
-          gap={30}
-          flexWrap="nowrap"
-        >
+      </PageHeader>
+      <RulesWrapper>
+        <RuleList>
           <RuleCard>
             <RuleNumber>01</RuleNumber>
-            <RuleName>Choose a Category</RuleName>
+            <RuleName>Pick a Category</RuleName>
             <RuleDescription>
-              First, choose a word category, like animals or movies. The computer then randomly
+              First, pick a word category, like animals or movies. The computer then randomly
               selects a secret word from that topic and shows you blanks for each letter of the
               word.
             </RuleDescription>
@@ -62,8 +60,8 @@ const Rules: NextPage = () => {
               health bar empties before you guess the word, you lose.
             </RuleDescription>
           </RuleCard>
-        </Flex>
-      </Flex>
+        </RuleList>
+      </RulesWrapper>
     </Container>
   );
 };

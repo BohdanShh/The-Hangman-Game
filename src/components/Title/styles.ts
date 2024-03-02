@@ -9,4 +9,12 @@ export const StyledTitle = styled.h2`
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+
+  @media (max-width: 1000px) {
+    font-size: 80px;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 50px;
+  }
 `;

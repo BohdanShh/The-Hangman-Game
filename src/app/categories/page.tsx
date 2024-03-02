@@ -1,0 +1,45 @@
+'use client';
+
+import { NextPage } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  CategoryCard,
+  CategoryList,
+  Container,
+  GridContainer,
+  PageHeader,
+} from 'src/app/categories/styles';
+import Button from 'src/components/Button';
+import Title from 'src/components/Title';
+import { data } from 'src/constants';
+import { Category } from 'src/types';
+
+const Categories: NextPage = () => {
+  return (
+    <Container>
+      <PageHeader>
+        <Link href="/">
+          <Button variant="secondary">
+            <Image
+              src="/back.svg"
+              width={40}
+              height={40}
+              alt="Go back"
+            />
+          </Button>
+        </Link>
+        <Title>Pick a Category</Title>
+      </PageHeader>
+      <CategoryList>
+        <GridContainer>
+          {(Object.keys(data) as Category[]).map(category => (
+            <CategoryCard href={`categories/${category}`}>{data[category].name}</CategoryCard>
+          ))}
+        </GridContainer>
+      </CategoryList>
+    </Container>
+  );
+};
+
+export default Categories;
