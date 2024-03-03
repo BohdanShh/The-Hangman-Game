@@ -26,5 +26,9 @@ export const StyledButton = styled.button<StyledButtonProps>(({ variant }) => {
     &:hover {
       transform: scale(1.1);
     }
+
+    @media (max-width: 500px) {
+      padding: ${isPrimary ? '10px 50px' : '7px'};
+    }
   `;
 });

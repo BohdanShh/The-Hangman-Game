@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 
-export const RulesWrapper = styled.div`
+export const RuleList = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
-`;
-
-export const RuleList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, auto);
   gap: 30px;
+  overflow-y: auto;
+  height: 100%;
 
   @media (max-width: 1000px) {
     grid-template-columns: repeat(1, 1fr);
