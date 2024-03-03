@@ -1,22 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 30px 15px;
-  max-width: 1250px;
-  margin: 0 auto;
-`;
-
-export const PageHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const CategoryList = styled.div`
   flex: 1;
   display: flex;
@@ -45,13 +29,13 @@ export const CategoryCard = styled(Link)`
   display: grid;
   place-items: center;
   padding: 60px;
-  border-top: 1px solid #261676;
-  border-right: 2px solid #261676;
-  border-left: 2px solid #261676;
-  border-bottom: 5px solid #261676;
+  border-top: 1px solid var(--secondary-color);
+  border-right: 2px solid var(--secondary-color);
+  border-left: 2px solid var(--secondary-color);
+  border-bottom: 5px solid var(--secondary-color);
   box-shadow: inset 0 2px 0px 2px rgba(255, 255, 255, 0.253);
   border-radius: 20px;
-  background-color: #2463ff;
+  background-color: var(--primary-color);
   text-transform: uppercase;
   text-align: center;
   color: #fff;

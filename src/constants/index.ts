@@ -1,3 +1,5 @@
+export const TOTAL_ATTEMPTS = 8;
+
 export const data = {
   movies: {
     name: 'Movies',

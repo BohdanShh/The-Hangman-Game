@@ -16,3 +16,8 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+:root {
+  --primary-color: #2463ff;
+  --secondary-color: #261676;
+}

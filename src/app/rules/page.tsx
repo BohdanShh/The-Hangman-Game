@@ -4,8 +4,6 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Container,
-  PageHeader,
   RuleCard,
   RuleDescription,
   RuleList,
@@ -13,6 +11,7 @@ import {
   RuleNumber,
   RulesWrapper,
 } from 'src/app/rules/styles';
+import { Container, PageHeader } from 'src/app/styles';
 import Button from 'src/components/Button';
 import Title from 'src/components/Title';
 

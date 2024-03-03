@@ -1,6 +1,22 @@
 import Image from 'next/image';
 import { styled } from 'styled-components';
 
+export const Container = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 15px;
+  max-width: 1250px;
+  margin: 0 auto;
+`;
+
+export const PageHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Wrapper = styled.div`
   height: 100%;
   padding: 0 15px;
@@ -17,12 +33,12 @@ export const Menu = styled.div`
   align-items: center;
   gap: 40px;
   border-radius: 50px;
-  border-top: 1px solid #261676;
-  border-right: 2px solid #261676;
-  border-left: 2px solid #261676;
-  border-bottom: 10px solid #261676;
-  box-shadow: inset 0 8px 0px 4px #2463ff;
-  background: linear-gradient(#0043ece2, #26167677);
+  border-top: 1px solid var(--secondary-color);
+  border-right: 2px solid var(--secondary-color);
+  border-left: 2px solid var(--secondary-color);
+  border-bottom: 10px solid var(--secondary-color);
+  box-shadow: inset 0 8px 0px 4px var(--primary-color);
+  background: linear-gradient(#0043ece2, var(--secondary-color));
 `;
 
 export const Logo = styled(Image)`

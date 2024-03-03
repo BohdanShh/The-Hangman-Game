@@ -3,13 +3,8 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  CategoryCard,
-  CategoryList,
-  Container,
-  GridContainer,
-  PageHeader,
-} from 'src/app/categories/styles';
+import { CategoryCard, CategoryList, GridContainer } from 'src/app/categories/styles';
+import { Container, PageHeader } from 'src/app/styles';
 import Button from 'src/components/Button';
 import Title from 'src/components/Title';
 import { data } from 'src/constants';

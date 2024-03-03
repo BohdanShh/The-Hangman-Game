@@ -1,21 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 30px 15px;
-  max-width: 1250px;
-  margin: 0 auto;
-`;
-
-export const PageHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const RulesWrapper = styled.div`
   flex: 1;
   display: flex;
@@ -54,7 +38,7 @@ export const RuleCard = styled.div`
 `;
 
 export const RuleNumber = styled.h3`
-  color: #2463ff;
+  color: var(--primary-color);
   font-size: 85px;
 
   @media (max-width: 1000px) {
@@ -63,7 +47,7 @@ export const RuleNumber = styled.h3`
 `;
 
 export const RuleName = styled.h4`
-  color: #261676;
+  color: var(--secondary-color);
   text-transform: uppercase;
   font-size: 40px;
 
