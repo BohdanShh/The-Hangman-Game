@@ -13,7 +13,10 @@ const Rules: NextPage = () => {
     <Container>
       <PageHeader>
         <Link href="/">
-          <Button variant="secondary">
+          <Button
+            variant="secondary"
+            fullRounded
+          >
             <Image
               src="/back.svg"
               width={40}

@@ -16,7 +16,10 @@ const Home: NextPage = () => {
           height={185}
         />
         <Link href="categories">
-          <Button variant="secondary">
+          <Button
+            variant="secondary"
+            fullRounded
+          >
             <Play
               src="/play.svg"
               alt="Play"

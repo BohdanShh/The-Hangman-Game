@@ -15,7 +15,10 @@ const Categories: NextPage = () => {
     <Container>
       <PageHeader>
         <Link href="/">
-          <Button variant="secondary">
+          <Button
+            variant="secondary"
+            fullRounded
+          >
             <Image
               src="/back.svg"
               width={40}
@@ -29,7 +32,7 @@ const Categories: NextPage = () => {
       <CategoryList>
         <GridContainer>
           {(Object.keys(data) as Category[]).map(category => (
-            <CategoryCard href={`categories/${category}`}>{data[category].name}</CategoryCard>
+            <CategoryCard href={`/categories/${category}`}>{data[category].name}</CategoryCard>
           ))}
         </GridContainer>
       </CategoryList>

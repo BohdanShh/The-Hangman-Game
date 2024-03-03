@@ -1,14 +1,14 @@
 import { css, styled } from 'styled-components';
 
-type StyledButtonProps = { variant: 'primary' | 'secondary' };
+type StyledButtonProps = { variant: 'primary' | 'secondary'; fullRounded?: boolean };
 
-export const StyledButton = styled.button<StyledButtonProps>(({ variant }) => {
+export const StyledButton = styled.button<StyledButtonProps>(({ variant, fullRounded }) => {
   const isPrimary = variant === 'primary';
 
   return css`
     display: grid;
     place-items: center;
-    border-radius: ${isPrimary ? '50px' : '50%'};
+    border-radius: ${fullRounded ? '50%' : '50px'};
     padding: ${isPrimary ? '10px 50px' : '15px'};
     border-top: 1px solid var(--secondary-color);
     border-right: 2px solid var(--secondary-color);

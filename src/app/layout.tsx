@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={mouseMemoirs.className}>
         <StyledCacheProvider>{children}</StyledCacheProvider>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

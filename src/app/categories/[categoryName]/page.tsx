@@ -16,6 +16,7 @@ import {
 import { useCategoryName } from 'src/app/categories/[categoryName]/useCategoryName';
 import { Container, PageHeader } from 'src/app/styles';
 import Button from 'src/components/Button';
+import Modal from 'src/components/Modal';
 import PlayerAttempts from 'src/components/PlayerAttempts';
 import { data } from 'src/constants';
 import { Category } from 'src/types';
@@ -25,14 +26,29 @@ type Props = {
 };
 
 const Game: NextPage<Props> = ({ params: { categoryName } }) => {
-  const { alphabet, clickedLetters, guessedLetters, hiddenWord, playerAttempts, handleClick } =
-    useCategoryName(categoryName);
+  const {
+    alphabet,
+    clickedLetters,
+    guessedLetters,
+    hiddenWord,
+    playerAttempts,
+    modalTitle,
+    isModalOpen,
+    handleMenuClick,
+    handleKeyClick,
+    handleContinueClick,
+    handlePlayAgainClick,
+  } = useCategoryName(categoryName);
 
   return (
     <Container>
       <PageHeader>
         <Row>
-          <Button variant="secondary">
+          <Button
+            variant="secondary"
+            fullRounded
+            onClick={handleMenuClick}
+          >
             <Image
               src="/menu.svg"
               width={40}
@@ -68,7 +84,7 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
             return (
               <Key
                 disabled={clickedLetters.has(key)}
-                onClick={handleClick}
+                onClick={handleKeyClick}
                 key={index}
               >
                 {key}
@@ -77,6 +93,12 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
           })}
         </Keyboard>
       </Content>
+      <Modal
+        title={modalTitle}
+        open={isModalOpen}
+        onContinue={handleContinueClick}
+        onPlayAgain={handlePlayAgainClick}
+      />
     </Container>
   );
 };

@@ -36,7 +36,7 @@ export const Menu = styled.div`
   border-top: 1px solid var(--secondary-color);
   border-right: 2px solid var(--secondary-color);
   border-left: 2px solid var(--secondary-color);
-  border-bottom: 10px solid var(--secondary-color);
+  border-bottom: 10px solid var(--primary-color);
   box-shadow: inset 0 8px 0px 4px var(--primary-color);
   background: linear-gradient(#0043ece2, var(--secondary-color));
 `;

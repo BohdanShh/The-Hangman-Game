@@ -1,17 +1,17 @@
-import { CSSProperties, FC, ReactNode } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { StyledButton } from 'src/components/Button/styles';
 
 type Props = {
-  children: ReactNode;
   variant?: 'primary' | 'secondary';
-  style?: CSSProperties;
-};
+  fullRounded?: boolean;
+} & HTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<Props> = ({ children, variant = 'primary', style }) => {
+const Button: FC<Props> = ({ children, variant = 'primary', fullRounded, ...props }) => {
   return (
     <StyledButton
       variant={variant}
-      style={style}
+      fullRounded={fullRounded}
+      {...props}
     >
       {children}
     </StyledButton>
