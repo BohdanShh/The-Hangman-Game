@@ -1,6 +1,5 @@
 import { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react';
-import { TOTAL_ATTEMPTS } from 'src/constants';
-import { data } from 'src/constants';
+import { data, TOTAL_ATTEMPTS } from 'src/constants';
 import { Category } from 'src/types';
 
 export const useCategoryName = (categoryName: string) => {
@@ -16,6 +15,18 @@ export const useCategoryName = (categoryName: string) => {
     []
   );
 
+  const isWordGuessed = useMemo(
+    () => hiddenWord.split('').every(letter => guessedLetters.has(letter)),
+    [hiddenWord, guessedLetters]
+  );
+
+  const openModal = (title: string): void => {
+    setModalTitle(title);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = (): void => setIsModalOpen(false);
+
   const pickRandomWord = (): void => {
     const { words } = data[categoryName as Category];
 
@@ -24,16 +35,9 @@ export const useCategoryName = (categoryName: string) => {
     setHiddenWord(words[randomIndex].toUpperCase());
   };
 
-  const handleMenuClick = (): void => {
-    setModalTitle('Paused');
-    setIsModalOpen(true);
-  };
-
-  const handleContinueClick = (): void => setIsModalOpen(false);
-
   const handlePlayAgainClick = (): void => {
     pickRandomWord();
-    setIsModalOpen(false);
+    closeModal();
     setClickedLetters(new Set());
     setGuessedLetters(new Set());
     setPlayerAttempts(TOTAL_ATTEMPTS);
@@ -43,15 +47,9 @@ export const useCategoryName = (categoryName: string) => {
     (letter: string) => {
       if (playerAttempts === 1) {
         setPlayerAttempts(prev => prev - 1);
-        setModalTitle('You Loose');
-        setIsModalOpen(true);
+        setGuessedLetters(new Set(hiddenWord.split('')));
 
         return;
-      }
-
-      if (playerAttempts && Array.from(guessedLetters).sort().join('') === hiddenWord) {
-        setModalTitle('You Win');
-        setIsModalOpen(true);
       }
 
       const pressedKey = letter.toUpperCase();
@@ -73,14 +71,16 @@ export const useCategoryName = (categoryName: string) => {
         return;
       }
 
-      setGuessedLetters(prev => {
-        const newSet = new Set(prev);
-        newSet.add(pressedKey);
+      if (/^[A-Z]$/.test(pressedKey) && hiddenWord.includes(pressedKey)) {
+        setGuessedLetters(prev => {
+          const newSet = new Set(prev);
+          newSet.add(pressedKey);
 
-        return newSet;
-      });
+          return newSet;
+        });
+      }
     },
-    [clickedLetters, hiddenWord, playerAttempts, guessedLetters]
+    [clickedLetters, hiddenWord, playerAttempts]
   );
 
   const handleKeyDown = useCallback(
@@ -115,9 +115,10 @@ export const useCategoryName = (categoryName: string) => {
     alphabet,
     modalTitle,
     isModalOpen,
-    handleMenuClick,
+    isWordGuessed,
+    openModal,
     handleKeyClick,
-    handleContinueClick,
+    handleContinueClick: () => closeModal(),
     handlePlayAgainClick,
   };
 };

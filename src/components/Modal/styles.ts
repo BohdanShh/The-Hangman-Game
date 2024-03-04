@@ -7,7 +7,6 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 0 15px;
   opacity: 0.7;
   background: linear-gradient(to bottom, #1a043a, #151278, var(--secondary-color));
 `;

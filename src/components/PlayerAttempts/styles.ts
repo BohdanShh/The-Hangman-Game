@@ -7,6 +7,10 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
+
+  @media (max-width: 700px) {
+    gap: 10px;
+  }
 `;
 
 export const ProgressWrapper = styled.div`
@@ -14,6 +18,10 @@ export const ProgressWrapper = styled.div`
   padding: 7px;
   border-radius: 25px;
   background-color: #fff;
+
+  @media (max-width: 700px) {
+    width: 100px;
+  }
 `;
 
 export const ProgressValue = styled.div<Props>(

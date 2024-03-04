@@ -34,7 +34,8 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
     playerAttempts,
     modalTitle,
     isModalOpen,
-    handleMenuClick,
+    isWordGuessed,
+    openModal,
     handleKeyClick,
     handleContinueClick,
     handlePlayAgainClick,
@@ -47,7 +48,7 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
           <Button
             variant="secondary"
             fullRounded
-            onClick={handleMenuClick}
+            onClick={() => openModal('Paused')}
           >
             <Image
               src="/menu.svg"
@@ -71,6 +72,15 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
                   <LetterWrapper
                     guessed={isLetterGuessed}
                     key={letterIndex}
+                    onTransitionEnd={() => {
+                      if (!playerAttempts) {
+                        openModal('You loose');
+                      }
+
+                      if (hiddenWord && playerAttempts && isWordGuessed) {
+                        openModal('You Win');
+                      }
+                    }}
                   >
                     {isLetterGuessed && <Letter>{letter}</Letter>}
                   </LetterWrapper>
@@ -83,7 +93,7 @@ const Game: NextPage<Props> = ({ params: { categoryName } }) => {
           {alphabet.map((key, index) => {
             return (
               <Key
-                disabled={clickedLetters.has(key)}
+                disabled={isWordGuessed || clickedLetters.has(key)}
                 onClick={handleKeyClick}
                 key={index}
               >
