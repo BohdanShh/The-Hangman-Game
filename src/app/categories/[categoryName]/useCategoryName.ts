@@ -15,10 +15,11 @@ export const useCategoryName = (categoryName: string) => {
     []
   );
 
-  const isWordGuessed = useMemo(
-    () => hiddenWord.split('').every(letter => guessedLetters.has(letter)),
-    [hiddenWord, guessedLetters]
-  );
+  const isWordGuessed = useMemo(() => {
+    const word = hiddenWord.split(' ').join('');
+
+    return word.split('').every(letter => guessedLetters.has(letter));
+  }, [hiddenWord, guessedLetters]);
 
   const openModal = (title: string): void => {
     setModalTitle(title);

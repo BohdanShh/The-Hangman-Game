@@ -31,8 +31,13 @@ const Categories: NextPage = () => {
       </PageHeader>
       <CategoryList>
         <GridContainer>
-          {(Object.keys(data) as Category[]).map(category => (
-            <CategoryCard href={`/categories/${category}`}>{data[category].name}</CategoryCard>
+          {(Object.keys(data) as Category[]).map((category, index) => (
+            <CategoryCard
+              href={`/categories/${category}`}
+              key={index}
+            >
+              {data[category].name}
+            </CategoryCard>
           ))}
         </GridContainer>
       </CategoryList>

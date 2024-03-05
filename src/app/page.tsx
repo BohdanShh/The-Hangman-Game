@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           width={375}
           height={185}
         />
-        <Link href="categories">
+        <Link href="/categories">
           <Button
             variant="secondary"
             fullRounded
