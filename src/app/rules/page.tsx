@@ -49,8 +49,8 @@ const Rules: NextPage = () => {
           <RuleNumber>03</RuleNumber>
           <RuleName>Win or Lose</RuleName>
           <RuleDescription>
-            You win by guessing all the letters in the word before your health runs out. If the
-            health bar empties before you guess the word, you lose.
+            Win by guessing all letters in the word before health runs out. If health empties before
+            guessing, you lose. Guess letters quickly and accurately to protect health and win.
           </RuleDescription>
         </RuleCard>
       </RuleList>

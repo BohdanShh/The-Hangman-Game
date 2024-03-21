@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const RuleList = styled.div`
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, auto);
   gap: 30px;
